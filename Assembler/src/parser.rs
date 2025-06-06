@@ -154,7 +154,10 @@ impl<'a> Parser<'a> {
     }
 
     fn advance(&mut self) {
+        let previous_type = self.tokens[self.current_index].token_type.clone();
         self.current_index += 1;
+
+        println!("{:?} -> {:?}", previous_type, self.tokens[self.current_index].token_type);
     }
 
     fn move_cursor(&mut self, delta: usize) {
